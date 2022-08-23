@@ -6,6 +6,9 @@ export const theme = extendTheme({
       "700": "#47585B",
       "500": "47585B",
       "50": "D9D9D9"
+    },
+    myellow: {
+      "100": "#FFBA08"
     }
   },
   fonts: {

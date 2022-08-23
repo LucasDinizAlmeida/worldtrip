@@ -1,20 +1,27 @@
-import { Flex, Heading, HStack, VStack, Text, Img } from "@chakra-ui/react";
+import { Flex, Heading, HStack, VStack, Text, Img, useBreakpointValue } from "@chakra-ui/react";
 
 
 export function Banner() {
 
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true
+  })
+
   return (
     <Flex
       w="100%"
-      bg="url(/assets/Background.png) no-repeat"
+      background="url(/assets/Background.png) repeat-x"
     >
       <HStack
-        w="80%"
+        flex={1}
         maxW="1440px"
         mx="auto"
-        py="10"
+        p={["8", "20"]}
         alignItems="center"
         justifyContent="space-between"
+        position="relative"
+        mb="20"
       >
         <VStack spacing={5}
           maxW="500px"
@@ -38,7 +45,7 @@ export function Banner() {
           </Text>
         </VStack>
 
-        <Img src="/assets/airplane.png" />
+        {isWideVersion && <Img src="/assets/airplane.png" position="absolute" bottom={-9} right={20} />}
 
       </HStack>
     </Flex>

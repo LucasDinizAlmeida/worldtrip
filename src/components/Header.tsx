@@ -1,7 +1,11 @@
 import { Flex, Img } from "@chakra-ui/react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 
 export function Header() {
+
+  const { asPath } = useRouter()
 
   return (
     <Flex
@@ -13,7 +17,21 @@ export function Header() {
       justifyContent="center"
       bg="gray.50"
     >
-      <Img src='/assets/logo.png' />
+      {
+        asPath === '/' ?
+          <Img src='/assets/logo.png' />
+          :
+          <Flex w="50%" alignItems="center" justifyContent="space-between" mr="auto" ml="20">
+            <Link href="/">
+              <Flex mr="auto">
+                <Img src="/assets/vector.png" />
+              </Flex>
+            </Link>
+
+            <Img src='/assets/logo.png' />
+          </Flex>
+      }
+
     </Flex>
   )
 }
